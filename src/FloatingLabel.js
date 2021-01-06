@@ -3,7 +3,6 @@
 // Imports
 import React from "react";
 import PropTypes from "prop-types";
-import "../bootstrap-import.js";
 
 import "./FloatingLabel.css";
 
