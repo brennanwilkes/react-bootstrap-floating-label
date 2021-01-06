@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './src/FloatingLabel.js',
   output: {
     path: path.resolve('dist'),
     filename: 'index.js',

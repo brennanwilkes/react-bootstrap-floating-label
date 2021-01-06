@@ -1,0 +1,24 @@
+/* Brennan Wilkes */
+
+.floating-label {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: flex-start;
+	align-items: flex-start;
+	text-align: left;
+}
+
+.floating-label label {
+	font-size: 1rem;
+	color: #495057;
+	pointer-events: none;
+	position: absolute;
+	transform: translate(0, 50%) scale(1);
+	transform-origin: top left;
+	transition: all 0.2s ease-out;
+}
+
+.floating-label:focus-within label, .floating-label .floating-label-active {
+	transform: translate(0, 12.5%) scale(0.6);
+}
