@@ -1,0 +1,19 @@
+{
+  "name": "react-floating-label",
+  "version": "1.0.0",
+  "description": "React form element with floating label text",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brennanwilkes/react-floating-label.git"
+  },
+  "author": "Brennan Wilkes <brennan@codexwilkes.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brennanwilkes/react-floating-label/issues"
+  },
+  "homepage": "https://github.com/brennanwilkes/react-floating-label#readme"
+}
