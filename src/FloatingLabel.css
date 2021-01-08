@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: flex-start;
 	text-align: left;
 }
@@ -14,11 +14,37 @@
 	color: #495057;
 	pointer-events: none;
 	position: absolute;
-	transform: translate(0, 50%) scale(1);
 	transform-origin: top left;
 	transition: all 0.2s ease-out;
+	padding-left: 1rem;
 }
 
 .floating-label:focus-within label, .floating-label .floating-label-active {
-	transform: translate(0, 12.5%) scale(0.6);
+	transform: translate(0, -50%) scale(0.6);
+}
+
+.floating-label input:focus{
+	color: #212529;
+	background-color: #fff;
+	border-color: #86b7fe;
+	outline: 0;
+	box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+.floating-label input{
+	display: block;
+	width: 100%;
+	padding: 1rem 0.75rem 0.25rem 0.75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

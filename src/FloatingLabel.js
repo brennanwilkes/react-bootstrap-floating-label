@@ -3,7 +3,6 @@
 // Imports
 import React from "react";
 import PropTypes from "prop-types";
-import "../bootstrap-import.js";
 
 import "./FloatingLabel.css";
 
@@ -25,7 +24,8 @@ class FloatingLabel extends React.Component {
 
 		this.state = {
 			isActive: false,
-			text: ""
+			text: "",
+			id: this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`
 		};
 	}
 
@@ -40,6 +40,10 @@ class FloatingLabel extends React.Component {
 			isActive: event.target.value !== "",
 			text: event.target.value
 		});
+
+		if (this.props.onChange) {
+			this.props.onChange(event);
+		}
 	}
 
 	/**
@@ -47,22 +51,35 @@ class FloatingLabel extends React.Component {
 		nested within a div, and sibling to a label
 	*/
 	render () {
-		return <>
-			<div className="floating-label">
-				<input
-					className={`pb-1 pt-3 ${this.props.className}`}
-					type={this.props.type}
-					id={this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`}
-					value={this.state.text}
-					onChange={event => {
-						this.handleTextChange(event);
-						if (this.props.onChange) {
-							this.props.onChange(event);
-						}
-					}} />
 
-				<label className={`pl-3 ${this.state.isActive ? "floating-label-active" : ""}`}>
-					{this.props.label}
+		const propDefault = {
+			className: this.props.className ? this.props.className : "",
+			labelClassName: this.props.labelClassName ? this.props.labelClassName : "",
+			inputClassName: this.props.inputClassName ? this.props.inputClassName : "",
+			type: this.props.type ? this.props.type : "text",
+			label: this.props.label ? this.props.label : "Floating Label",
+			style: this.props.style ? this.props.style : {},
+			labelStyle: this.props.labelStyle ? this.props.labelStyle : {},
+			inputStyle: this.props.inputStyle ? this.props.inputStyle : {}
+		}
+
+		return <>
+			<div
+				className={`floating-label ${propDefault.className}`}
+				style={propDefault.style} >
+
+				<input
+					className={propDefault.inputClassName}
+					type={propDefault.type}
+					id={this.state.id}
+					value={this.state.text}
+					onChange={this.handleTextChange}
+					style={propDefault.inputStyle} />
+
+				<label
+					className={`${propDefault.labelClassName}${this.state.isActive ? " floating-label-active" : ""}`}
+					style={propDefault.labelStyle} >
+					{propDefault.label}
 				</label>
 			</div>
 		</>;
