@@ -45,6 +45,10 @@ class FloatingLabel extends React.Component {
 			isActive: event.target.value !== "",
 			text: event.target.value
 		});
+
+		if (this.props.onChange) {
+			this.props.onChange(event);
+		}
 	}
 
 	/**
@@ -59,12 +63,7 @@ class FloatingLabel extends React.Component {
 					type={this.state.type}
 					id={this.state.id}
 					value={this.state.text}
-					onChange={event => {
-						this.handleTextChange(event);
-						if (this.props.onChange) {
-							this.props.onChange(event);
-						}
-					}} />
+					onChange={this.handleTextChange} />
 
 				<label className={`${this.state.labelClassName}${this.state.isActive ? " floating-label-active" : ""}`}>
 					{this.state.label}
