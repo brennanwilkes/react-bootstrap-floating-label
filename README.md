@@ -1,1 +1,1 @@
-# react-bootstrap-floating-label
+# react-floating-label
