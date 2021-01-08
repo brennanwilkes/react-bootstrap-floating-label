@@ -24,7 +24,13 @@ class FloatingLabel extends React.Component {
 
 		this.state = {
 			isActive: false,
-			text: ""
+			text: "",
+			id: this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`,
+			mainClass: this.props.className ? this.props.className : "",
+			labelClassName: this.props.labelClassName ? this.props.labelClassName : "",
+			inputClassName: this.props.inputClassName ? this.props.inputClassName : "",
+			type: this.props.type ? this.props.type : "text",
+			label: this.props.label ? this.props.label : "Floating Label"
 		};
 	}
 
@@ -47,11 +53,11 @@ class FloatingLabel extends React.Component {
 	*/
 	render () {
 		return <>
-			<div className="floating-label">
+			<div className={`floating-label ${this.state.clasName}`}>
 				<input
-					className={`${this.props.className}`}
-					type={this.props.type}
-					id={this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`}
+					className={this.state.inputClassName}
+					type={this.state.type}
+					id={this.state.id}
 					value={this.state.text}
 					onChange={event => {
 						this.handleTextChange(event);
@@ -60,8 +66,8 @@ class FloatingLabel extends React.Component {
 						}
 					}} />
 
-				<label className={`${this.state.isActive ? "floating-label-active" : ""}`}>
-					{this.props.label}
+				<label className={`${this.state.labelClassName}${this.state.isActive ? " floating-label-active" : ""}`}>
+					{this.state.label}
 				</label>
 			</div>
 		</>;
