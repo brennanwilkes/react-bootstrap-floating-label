@@ -49,7 +49,7 @@ class FloatingLabel extends React.Component {
 		return <>
 			<div className="floating-label">
 				<input
-					className={`pb-1 pt-3 ${this.props.className}`}
+					className={`${this.props.className}`}
 					type={this.props.type}
 					id={this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`}
 					value={this.state.text}
@@ -60,7 +60,7 @@ class FloatingLabel extends React.Component {
 						}
 					}} />
 
-				<label className={`pl-3 ${this.state.isActive ? "floating-label-active" : ""}`}>
+				<label className={`${this.state.isActive ? "floating-label-active" : ""}`}>
 					{this.props.label}
 				</label>
 			</div>
