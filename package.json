@@ -14,6 +14,14 @@
   },
   "author": "Brennan Wilkes <brennan@codexwilkes.com>",
   "license": "MIT",
+  "keywords": [
+    "React",
+	"form",
+	"form element",
+	"floating",
+	"label"
+  ],
+  "files": [ "dist", "README.md" ],
   "bugs": {
     "url": "https://github.com/brennanwilkes/react-floating-label/issues"
   },
