@@ -16,12 +16,15 @@
   "license": "MIT",
   "keywords": [
     "React",
-	"form",
-	"form element",
-	"floating",
-	"label"
+    "form",
+    "form element",
+    "floating",
+    "label"
   ],
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "bugs": {
     "url": "https://github.com/brennanwilkes/react-floating-label/issues"
   },
