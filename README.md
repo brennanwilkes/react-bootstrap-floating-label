@@ -12,6 +12,42 @@
 
 A handy form input element with a floating label for react, styled to fit bootstrap projects
 
+**Installation**
+
+With npm:
 ```sh
 npm install react-bootstrap-floating-label react
 ```
+
+With a CDN:
+```html
+<script src="https://unpkg.com/react-bootstrap-floating-label"></script>
+```
+
+**Example usage**
+```js
+import FloatingLabel from "react-bootstrap-floating-label";
+
+<FloatingLabel />
+<FloatingLabel id="myLabel" />
+<FloatingLabel style={{width: "40%"}} onChange={{event => console.log(event.target.value) }} />
+```
+
+**Props**
+
+<FloatingLabel /> can be used completely without props, however you will likely want to pass in some props in order to customize it to your needs.
+
+| Prop           | Type       | Purpose                                                       |
+| -------------- | ---------- | ------------------------------------------------------------- |
+| id             | `string`   | ID of the wrapper div                                         |
+| labelId        | `string`   | ID of the internal label element                              |
+| inputId        | `string`   | ID of the internal input element                              |
+| onChange       | `function` | Callback function to run on change. Accepts parameter `event` |
+| className      | `string`   | Class(es) to apply to the wrapper div                         |
+| labelClassName | `string`   | Class(es) to apply to the internal label element              |
+| inputClassName | `string`   | Class(es) to apply to the internal input element              |
+| type           | `string`   | HTML5 input type. Defaults to text                            |
+| label          | `string`   | Label text to display inside input                            |
+| style          | `object`   | React type styles to apply to the wrapper div                 |
+| labelStyle     | `object`   | React type styles to apply to the internal label element      |
+| inputStyle     | `object`   | React type styles to apply to the internal input element      |

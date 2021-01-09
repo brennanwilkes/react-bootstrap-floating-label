@@ -27,6 +27,8 @@ class FloatingLabel extends React.Component {
 			text: "",
 			id: this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`
 		};
+		this.state.labelId= this.labelId.id ? this.labelId.id : `${this.state.id}-label`;
+		this.state.inputId= this.inputId.id ? this.inputId.id : `${this.state.id}-input`;
 	}
 
 	/**
@@ -66,12 +68,12 @@ class FloatingLabel extends React.Component {
 		return <>
 			<div
 				className={`floating-label ${propDefault.className}`}
+				id={this.state.id}
 				style={propDefault.style} >
 
 				<input
 					className={propDefault.inputClassName}
 					type={propDefault.type}
-					id={this.state.id}
 					value={this.state.text}
 					onChange={this.handleTextChange}
 					style={propDefault.inputStyle} />
@@ -87,15 +89,22 @@ class FloatingLabel extends React.Component {
 }
 
 /**
- * Props may contain a classname, a type, an id, an onChange
- * callback method, and a label
+ * Props may contain a classname, id, and style for the wrapper, input, and label.
+ * They may also contain a callback method, label text, and input type.
  */
 FloatingLabel.propTypes = {
-	className: PropTypes.string,
-	type: PropTypes.string,
 	id: PropTypes.string,
+	labelId: PropTypes.string,
+	inputId: PropTypes.string,
+	className: PropTypes.string,
+	labelClassName: PropTypes.string,
+	inputClassName: PropTypes.string,
+	type: PropTypes.string,
 	onChange: PropTypes.func,
-	label: PropTypes.string
+	label: PropTypes.string,
+	style: PropTypes.object,
+	labelStyle: PropTypes.object,
+	inputStyle: PropTypes.object
 };
 
 export default FloatingLabel;
