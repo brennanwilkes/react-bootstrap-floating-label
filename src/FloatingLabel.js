@@ -18,17 +18,23 @@ class FloatingLabel extends React.Component {
 		@param {any[]} props
 		@constructor
 	*/
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.handleTextChange = this.handleTextChange.bind(this);
 
 		this.state = {
 			isActive: false,
 			text: "",
-			id: this.props.id ? this.props.id : `floating-label${parseInt(Math.random() * 1000)}`
+			id: this.props.id
+				? this.props.id
+				: `floating-label${parseInt(Math.random() * 1000)}`,
 		};
-		this.state.labelId= this.props.labelId ? this.props.labelId : `${this.state.id}-label`;
-		this.state.inputId= this.props.inputId ? this.props.inputId : `${this.state.id}-input`;
+		this.state.labelId = this.props.labelId
+			? this.props.labelId
+			: `${this.state.id}-label`;
+		this.state.inputId = this.props.inputId
+			? this.props.inputId
+			: `${this.state.id}-input`;
 	}
 
 	/**
@@ -37,10 +43,10 @@ class FloatingLabel extends React.Component {
 		controlled input elements
 		@param {object} event
 	*/
-	handleTextChange (event) {
+	handleTextChange(event) {
 		this.setState({
 			isActive: event.target.value !== "",
-			text: event.target.value
+			text: event.target.value,
 		});
 
 		if (this.props.onChange) {
@@ -52,39 +58,48 @@ class FloatingLabel extends React.Component {
 		Renders a form input with all the required callback and id information
 		nested within a div, and sibling to a label
 	*/
-	render () {
-
+	render() {
 		const propDefault = {
 			className: this.props.className ? this.props.className : "",
-			labelClassName: this.props.labelClassName ? this.props.labelClassName : "",
-			inputClassName: this.props.inputClassName ? this.props.inputClassName : "",
+			labelClassName: this.props.labelClassName
+				? this.props.labelClassName
+				: "",
+			inputClassName: this.props.inputClassName
+				? this.props.inputClassName
+				: "",
 			type: this.props.type ? this.props.type : "text",
 			label: this.props.label ? this.props.label : "Floating Label",
 			style: this.props.style ? this.props.style : {},
 			labelStyle: this.props.labelStyle ? this.props.labelStyle : {},
-			inputStyle: this.props.inputStyle ? this.props.inputStyle : {}
-		}
+			inputStyle: this.props.inputStyle ? this.props.inputStyle : {},
+		};
 
-		return <>
-			<div
-				className={`floating-label ${propDefault.className}`}
-				id={this.state.id}
-				style={propDefault.style} >
+		return (
+			<>
+				<div
+					className={`floating-label ${propDefault.className}`}
+					id={this.state.id}
+					style={propDefault.style}
+				>
+					<input
+						className={propDefault.inputClassName}
+						type={propDefault.type}
+						value={this.state.text}
+						onChange={this.handleTextChange}
+						style={propDefault.inputStyle}
+					/>
 
-				<input
-					className={propDefault.inputClassName}
-					type={propDefault.type}
-					value={this.state.text}
-					onChange={this.handleTextChange}
-					style={propDefault.inputStyle} />
-
-				<label
-					className={`${propDefault.labelClassName}${this.state.isActive ? " floating-label-active" : ""}`}
-					style={propDefault.labelStyle} >
-					{propDefault.label}
-				</label>
-			</div>
-		</>;
+					<label
+						className={`${propDefault.labelClassName}${
+							this.state.isActive ? " floating-label-active" : ""
+						}`}
+						style={propDefault.labelStyle}
+					>
+						{propDefault.label}
+					</label>
+				</div>
+			</>
+		);
 	}
 }
 
@@ -104,7 +119,7 @@ FloatingLabel.propTypes = {
 	label: PropTypes.string,
 	style: PropTypes.object,
 	labelStyle: PropTypes.object,
-	inputStyle: PropTypes.object
+	inputStyle: PropTypes.object,
 };
 
 export default FloatingLabel;
