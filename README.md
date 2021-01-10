@@ -29,8 +29,8 @@ With a CDN:
 import FloatingLabel from "react-bootstrap-floating-label";
 
 <FloatingLabel />
-<FloatingLabel id="myLabel" />
-<FloatingLabel style={{width: "40%"}} onChange={{event => console.log(event.target.value) }} />
+<FloatingLabel label="Name: " />
+<FloatingLabel label="Name: " id="myLabel" style={{width: "40%"}} onChange={{event => console.log(event.target.value) }} />
 ```
 
 **Props**
