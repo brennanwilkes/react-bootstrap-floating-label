@@ -32,6 +32,7 @@ class FloatingLabel extends React.Component {
 			id: ID,
 			labelId: this.props.labelId ? this.props.labelId : `${ID}-label`,
 			inputId: this.props.inputId ? this.props.inputId : `${ID}-input`,
+			queuedChangeTimeout: undefined,
 		};
 	}
 
@@ -48,7 +49,20 @@ class FloatingLabel extends React.Component {
 		});
 
 		if (this.props.onChange) {
-			this.props.onChange(event);
+			if (this.props.onChangeDelay) {
+				if (this.state.queuedChangeTimeout) {
+					clearTimeout(this.state.queuedChangeTimeout);
+				}
+
+				const timeoutId = setTimeout(() => {
+					this.props.onChange(event);
+					this.setState({ queuedChangeTimeout: undefined });
+				}, this.props.onChangeDelay);
+
+				this.setState({ queuedChangeTimeout: timeoutId });
+			} else {
+				this.props.onChange(event);
+			}
 		}
 	}
 
@@ -114,6 +128,7 @@ FloatingLabel.propTypes = {
 	inputClassName: PropTypes.string,
 	type: PropTypes.string,
 	onChange: PropTypes.func,
+	onChangeDelay: PropTypes.number,
 	label: PropTypes.string,
 	style: PropTypes.object,
 	labelStyle: PropTypes.object,

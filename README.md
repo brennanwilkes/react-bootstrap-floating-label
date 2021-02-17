@@ -38,17 +38,18 @@ import FloatingLabel from "react-bootstrap-floating-label";
 
 <FloatingLabel /> can be used completely without props, however you will likely want to pass in some props in order to customize it to your needs.
 
-| Prop           | Type       | Purpose                                                       |
-| -------------- | ---------- | ------------------------------------------------------------- |
-| id             | `string`   | ID of the wrapper div                                         |
-| labelId        | `string`   | ID of the internal label element                              |
-| inputId        | `string`   | ID of the internal input element                              |
-| onChange       | `function` | Callback function to run on change. Accepts parameter `event` |
-| className      | `string`   | Class(es) to apply to the wrapper div                         |
-| labelClassName | `string`   | Class(es) to apply to the internal label element              |
-| inputClassName | `string`   | Class(es) to apply to the internal input element              |
-| type           | `string`   | HTML5 input type. Defaults to text                            |
-| label          | `string`   | Label text to display inside input                            |
-| style          | `object`   | React type styles to apply to the wrapper div                 |
-| labelStyle     | `object`   | React type styles to apply to the internal label element      |
-| inputStyle     | `object`   | React type styles to apply to the internal input element      |
+| Prop           | Type       | Purpose                                                                               |
+| -------------- | ---------- | ------------------------------------------------------------------------------------- |
+| id             | `string`   | ID of the wrapper div                                                                 |
+| labelId        | `string`   | ID of the internal label element                                                      |
+| inputId        | `string`   | ID of the internal input element                                                      |
+| onChange       | `function` | Callback function to run on change. Accepts parameter `event`                         |
+| onChangeDelay  | `number`   | Number of milliseconds to delay onChange callback by. Will reset on new change events |
+| className      | `string`   | Class(es) to apply to the wrapper div                                                 |
+| labelClassName | `string`   | Class(es) to apply to the internal label element                                      |
+| inputClassName | `string`   | Class(es) to apply to the internal input element                                      |
+| type           | `string`   | HTML5 input type. Defaults to text                                                    |
+| label          | `string`   | Label text to display inside input                                                    |
+| style          | `object`   | React type styles to apply to the wrapper div                                         |
+| labelStyle     | `object`   | React type styles to apply to the internal label element                              |
+| inputStyle     | `object`   | React type styles to apply to the internal input element                              |

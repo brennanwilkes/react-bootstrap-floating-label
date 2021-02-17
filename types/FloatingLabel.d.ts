@@ -5,6 +5,7 @@ interface IProps {
 	labelId?: string,
 	inputId?: string,
 	onChange?: (event: React.FormEvent<HTMLInputElement>) => void,
+	onChangeDelay?: number,
 	className?: string,
 	labelClassName?: string,
 	inputClassName?: string,
@@ -20,6 +21,7 @@ interface IState {
 	id: string,
 	labelId: string,
 	inputId: string,
+	queuedChangeTimeout: number | undefined
 }
 
 declare module 'react-bootstrap-floating-label' {
