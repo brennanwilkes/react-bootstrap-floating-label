@@ -1,6 +1,6 @@
 {
 	"name": "react-bootstrap-floating-label",
-	"version": "1.3.7",
+	"version": "1.3.8",
 	"description": "React form element with floating label text",
 	"main": "dist/index.js",
 	"types": "types/FloatingLabel.d.ts",
