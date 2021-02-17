@@ -7,7 +7,7 @@
 
 ![license](https://img.shields.io/github/license/brennanwilkes/react-bootstrap-floating-label?style=for-the-badge)
 ![issues](https://img.shields.io/github/issues/brennanwilkes/react-bootstrap-floating-label?style=for-the-badge)
-![contributors](https://img.shields.io/github/contributors-anon/brennanwilkes/react-bootstrap-floating-label?style=for-the-badge)
+![contributors](https://img.shields.io/github/contributors/brennanwilkes/react-bootstrap-floating-label?style=for-the-badge)
 ![downloads](https://img.shields.io/npm/dt/react-bootstrap-floating-label?style=for-the-badge)
 
 A handy form input element with a floating label for react, styled to fit bootstrap projects  
