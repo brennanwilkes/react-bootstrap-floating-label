@@ -22,7 +22,9 @@ interface IState {
 	inputId: string,
 }
 
-export declare class FloatingLabel extends React.Component<IProps, IState>{
-	public constructor(props: IProps);
-	public handleTextChange(event: React.FormEvent<HTMLInputElement>): void;
+declare module 'FloatingLabel' {
+	export default class FloatingLabel extends React.Component<IProps, IState>{
+		public constructor(props: IProps);
+		public handleTextChange(event: React.FormEvent<HTMLInputElement>): void;
+	}
 }
