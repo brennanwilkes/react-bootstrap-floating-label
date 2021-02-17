@@ -42,7 +42,7 @@ class FloatingLabel extends React.Component {
 		controlled input elements
 		@param {object} event
 	*/
-	handleTextChange(event) {
+	handleTextChange(event, force = false) {
 		this.setState({
 			isActive: event.target.value !== "",
 			text: event.target.value,
@@ -54,12 +54,15 @@ class FloatingLabel extends React.Component {
 					clearTimeout(this.state.queuedChangeTimeout);
 				}
 
-				const timeoutId = setTimeout(() => {
+				if (force) {
 					this.props.onChange(event);
-					this.setState({ queuedChangeTimeout: undefined });
-				}, this.props.onChangeDelay);
-
-				this.setState({ queuedChangeTimeout: timeoutId });
+				} else {
+					const timeoutId = setTimeout(() => {
+						this.props.onChange(event);
+						this.setState({ queuedChangeTimeout: undefined });
+					}, this.props.onChangeDelay);
+					this.setState({ queuedChangeTimeout: timeoutId });
+				}
 			} else {
 				this.props.onChange(event);
 			}
@@ -98,6 +101,11 @@ class FloatingLabel extends React.Component {
 						type={propDefault.type}
 						value={this.state.text}
 						onChange={this.handleTextChange}
+						onKeyDown={(event) => {
+							if (event.key === "Enter") {
+								this.handleTextChange(event, true);
+							}
+						}}
 						style={propDefault.inputStyle}
 					/>
 

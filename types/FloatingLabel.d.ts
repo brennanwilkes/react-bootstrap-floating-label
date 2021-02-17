@@ -27,6 +27,6 @@ interface IState {
 declare module 'react-bootstrap-floating-label' {
 	export default class FloatingLabel extends React.Component<IProps, IState>{
 		public constructor(props: IProps);
-		public handleTextChange(event: React.FormEvent<HTMLInputElement>): void;
+		public handleTextChange(event: React.FormEvent<HTMLInputElement>, force?: boolean): void;
 	}
 }
