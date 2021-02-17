@@ -22,18 +22,16 @@ class FloatingLabel extends React.Component {
 		super(props);
 		this.handleTextChange = this.handleTextChange.bind(this);
 
+		const ID = this.props.id
+			? this.props.id
+			: `floating-label${parseInt(Math.random() * 1000)}`;
+
 		this.state = {
 			isActive: false,
 			text: "",
-			id: this.props.id
-				? this.props.id
-				: `floating-label${parseInt(Math.random() * 1000)}`,
-			labelId: this.props.labelId
-				? this.props.labelId
-				: `${this.state.id}-label`,
-			inputId: this.props.inputId
-				? this.props.inputId
-				: `${this.state.id}-input`,
+			id: ID,
+			labelId: this.props.labelId ? this.props.labelId : `${ID}-label`,
+			inputId: this.props.inputId ? this.props.inputId : `${ID}-input`,
 		};
 	}
 
