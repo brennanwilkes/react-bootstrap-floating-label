@@ -28,13 +28,13 @@ class FloatingLabel extends React.Component {
 			id: this.props.id
 				? this.props.id
 				: `floating-label${parseInt(Math.random() * 1000)}`,
+			labelId: this.props.labelId
+				? this.props.labelId
+				: `${this.state.id}-label`,
+			inputId: this.props.inputId
+				? this.props.inputId
+				: `${this.state.id}-input`,
 		};
-		this.state.labelId = this.props.labelId
-			? this.props.labelId
-			: `${this.state.id}-label`;
-		this.state.inputId = this.props.inputId
-			? this.props.inputId
-			: `${this.state.id}-input`;
 	}
 
 	/**
