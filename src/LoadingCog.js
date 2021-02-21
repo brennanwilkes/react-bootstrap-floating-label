@@ -62,12 +62,12 @@ class LoadingCog extends React.Component {
 	}
 
 	render() {
-		let style = this.props.style ?? {};
-		style.transform = `rotate(${this.state.rot}deg)`;
+		let appliedStyle = this.props.style ? { ...this.props.style } : {};
+		appliedStyle.transform = `rotate(${this.state.rot}deg)`;
 
 		return (
 			<>
-				<div style={style} className="loadingCog" id={this.state.id}>
+				<div style={appliedStyle} className="loadingCog" id={this.state.id}>
 					<ImCog size={this.props.size ?? 30} />
 				</div>
 			</>
