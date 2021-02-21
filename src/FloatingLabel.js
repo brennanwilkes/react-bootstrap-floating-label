@@ -5,6 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./FloatingLabel.css";
+import LoadingCog from "./LoadingCog.js";
 
 /**
 	A floating label input component.
@@ -41,6 +42,7 @@ class FloatingLabel extends React.Component {
 		Updates state to comply with React standard
 		controlled input elements
 		@param {object} event
+		@param {boolean} force
 	*/
 	handleTextChange(event, force = false) {
 		this.setState({
@@ -117,6 +119,15 @@ class FloatingLabel extends React.Component {
 					>
 						{propDefault.label}
 					</label>
+					{this.props.loadingCog ? (
+						<LoadingCog
+							rotating={this.props.loadingCogSpinning ?? false}
+							size={this.props.loadingCogSize ?? 30}
+							style={this.props.loadingCogStyle ?? {}}
+						/>
+					) : (
+						<></>
+					)}
 				</div>
 			</>
 		);
@@ -141,6 +152,10 @@ FloatingLabel.propTypes = {
 	style: PropTypes.object,
 	labelStyle: PropTypes.object,
 	inputStyle: PropTypes.object,
+	loadingCog: PropTypes.boolean,
+	loadingCogSpinning: PropTypes.boolean,
+	loadingCogSize: PropTypes.number,
+	loadingCogStyle: PropTypes.object,
 };
 
 export default FloatingLabel;

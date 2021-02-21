@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface IProps {
+interface FloatingLabelIProps {
 	id?: string,
 	labelId?: string,
 	inputId?: string,
@@ -14,8 +14,12 @@ interface IProps {
 	style?: React.CSSProperties,
 	labelStyle?: React.CSSProperties,
 	inputStyle?: React.CSSProperties,
+	loadingCog?: boolean,
+	loadingCogSpinning?: boolean,
+	loadingCogSize?: number,
+	loadingCogStyle?: React.CSSProperties
 }
-interface IState {
+interface FloatingLabelIState {
 	isActive: boolean,
 	text: string,
 	id: string,
@@ -24,9 +28,23 @@ interface IState {
 	queuedChangeTimeout: number | undefined
 }
 
+interface LoadingCogIProps{
+	style?: React.CSSProperties,
+	size?: number,
+	rotating?: boolean
+}
+
+interface LoadingCogIState{
+	rotateInterval?: number
+}
+
 declare module 'react-bootstrap-floating-label' {
-	export default class FloatingLabel extends React.Component<IProps, IState>{
-		public constructor(props: IProps);
+	export default class FloatingLabel extends React.Component<FloatingLabelIProps, FloatingLabelIState>{
+		public constructor(props: FloatingLabelIProps);
 		public handleTextChange(event: React.FormEvent<HTMLInputElement>, force?: boolean): void;
+	}
+	export class LoadingCog extends React.Component<LoadingCogIProps, LoadingCogIState>{
+		public constructor(props: LoadingCogIProps);
+		public triggerRotate(): void;
 	}
 }
