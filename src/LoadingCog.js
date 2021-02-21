@@ -70,7 +70,7 @@ class LoadingCog extends React.Component {
 LoadingCog.propTypes = {
 	style: PropTypes.object,
 	size: PropTypes.number,
-	rotating: PropTypes.boolean,
+	rotating: PropTypes.bool,
 };
 
 export default LoadingCog;

@@ -152,8 +152,8 @@ FloatingLabel.propTypes = {
 	style: PropTypes.object,
 	labelStyle: PropTypes.object,
 	inputStyle: PropTypes.object,
-	loadingCog: PropTypes.boolean,
-	loadingCogSpinning: PropTypes.boolean,
+	loadingCog: PropTypes.bool,
+	loadingCogSpinning: PropTypes.bool,
 	loadingCogSize: PropTypes.number,
 	loadingCogStyle: PropTypes.object,
 };
