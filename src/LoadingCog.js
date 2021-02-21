@@ -19,6 +19,7 @@ class LoadingCog extends React.Component {
 		this.state = {
 			id: this.props.id ?? `LoadingCog-${parseInt(Math.random() * 1000)}`,
 			rotateInterval: undefined,
+			rot: 0,
 		};
 
 		if (props.rotating) {
@@ -26,19 +27,26 @@ class LoadingCog extends React.Component {
 		}
 	}
 
+	componentWillUnmount() {
+		this.endRotate();
+	}
+
+	endRotate() {
+		if (this.state.rotateInterval) {
+			window.clearInterval(this.state.rotateInterval);
+			this.setState({ rotateInterval: undefined });
+		}
+	}
+
 	triggerRotate() {
-		let rot = 0;
 		if (this.state.rotateInterval) {
 			window.clearInterval(this.state.rotateInterval);
 		}
-
 		const id = window.setInterval(() => {
-			const elem = document.getElementById(this.state.id);
-			if (elem) {
-				elem.style.transform = `rotate(${rot}deg)`;
-			}
-			rot += 1;
-		}, 15);
+			this.setState({
+				rot: this.state.rot + 1,
+			});
+		}, 10);
 
 		this.setState({
 			rotateInterval: id,
@@ -49,19 +57,17 @@ class LoadingCog extends React.Component {
 		if (!prevProps.rotating && this.props.rotating) {
 			this.triggerRotate();
 		} else if (prevProps.rotating && !this.props.rotating) {
-			window.clearInterval(this.state.rotateInterval);
-			this.setState({ rotateInterval: undefined });
+			this.endRotate();
 		}
 	}
 
 	render() {
+		const style = this.props.style ?? {};
+		style.transform = `rotate(${this.state.rot}deg)`;
+
 		return (
 			<>
-				<div
-					style={this.props.style ?? {}}
-					className="loadingCog"
-					id={this.state.id}
-				>
+				<div style={style} className="loadingCog" id={this.state.id}>
 					<ImCog size={this.props.size ?? 30} />
 				</div>
 			</>
