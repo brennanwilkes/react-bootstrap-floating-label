@@ -1,17 +1,19 @@
 /* Brennan Wilkes */
 
-.loadingCog{
+.loadingCog {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	will-change: transform;
 }
 
-.loadingCog:active, .loadingCog, .loadingCog:focus{
+.loadingCog:active,
+.loadingCog,
+.loadingCog:focus {
 	outline: none;
 	box-shadow: none;
 }
 
-.loadingCog:hover{
+.loadingCog:hover {
 	cursor: default !important;
 }

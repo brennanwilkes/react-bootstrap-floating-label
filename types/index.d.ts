@@ -35,7 +35,8 @@ interface LoadingCogIProps{
 }
 
 interface LoadingCogIState{
-	rotateInterval?: number
+	rotateInterval?: number,
+	id: string
 }
 
 declare module 'react-bootstrap-floating-label' {
