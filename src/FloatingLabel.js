@@ -34,6 +34,7 @@ class FloatingLabel extends React.Component {
 			labelId: this.props.labelId ? this.props.labelId : `${ID}-label`,
 			inputId: this.props.inputId ? this.props.inputId : `${ID}-input`,
 			queuedChangeTimeout: undefined,
+			cogId: `${ID}-cog`,
 		};
 	}
 
@@ -121,6 +122,7 @@ class FloatingLabel extends React.Component {
 					</label>
 					{this.props.loadingCog ? (
 						<LoadingCog
+							id={this.state.cogId}
 							rotating={this.props.loadingCogSpinning ?? false}
 							size={this.props.loadingCogSize ?? 30}
 							style={this.props.loadingCogStyle ?? {}}

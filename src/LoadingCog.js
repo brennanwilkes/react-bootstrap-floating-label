@@ -17,7 +17,7 @@ class LoadingCog extends React.Component {
 		this.triggerRotate = this.triggerRotate.bind(this);
 
 		this.state = {
-			id: `LoadingCog-${parseInt(Math.random() * 1000)}`,
+			id: this.props.id ?? `LoadingCog-${parseInt(Math.random() * 1000)}`,
 			rotateInterval: undefined,
 		};
 
@@ -73,6 +73,7 @@ LoadingCog.propTypes = {
 	style: PropTypes.object,
 	size: PropTypes.number,
 	rotating: PropTypes.bool,
+	id: PropTypes.string,
 };
 
 export default LoadingCog;

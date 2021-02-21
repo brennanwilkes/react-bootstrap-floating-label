@@ -23,6 +23,7 @@ interface FloatingLabelIState {
 	isActive: boolean,
 	text: string,
 	id: string,
+	cogId: string,
 	labelId: string,
 	inputId: string,
 	queuedChangeTimeout: number | undefined
@@ -31,7 +32,8 @@ interface FloatingLabelIState {
 interface LoadingCogIProps{
 	style?: React.CSSProperties,
 	size?: number,
-	rotating?: boolean
+	rotating?: boolean,
+	id?: string
 }
 
 interface LoadingCogIState{
