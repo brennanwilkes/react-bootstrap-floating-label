@@ -22,7 +22,7 @@ class LoadingCog extends React.Component {
 			rot: 0,
 		};
 
-		if (props.rotating) {
+		if (this.props.rotating) {
 			this.triggerRotate();
 		}
 	}
@@ -62,7 +62,7 @@ class LoadingCog extends React.Component {
 	}
 
 	render() {
-		const style = this.props.style ?? {};
+		let style = this.props.style ?? {};
 		style.transform = `rotate(${this.state.rot}deg)`;
 
 		return (
