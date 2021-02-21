@@ -31,16 +31,20 @@ class LoadingCog extends React.Component {
 		if (this.state.rotateInterval) {
 			window.clearInterval(this.state.rotateInterval);
 		}
-		const id = window.setInterval(() => {
-			document.getElementById(
-				this.state.id
-			).style.transform = `rotate(${rot}deg)`;
-			rot += 1;
-		}, 10);
+		const elem = document.getElementById(this.state.id);
+		if (elem) {
+			const id = window.setInterval(() => {
+				elem.style.transform = `rotate(${rot}deg)`;
+				rot += 1;
+			}, 10);
 
-		this.setState({
-			rotateInterval: id,
-		});
+			this.setState({
+				rotateInterval: id,
+			});
+		} else {
+			window.clearInterval(this.state.rotateInterval);
+			this.setState({ rotateInterval: undefined });
+		}
 	}
 
 	componentDidUpdate(prevProps) {
