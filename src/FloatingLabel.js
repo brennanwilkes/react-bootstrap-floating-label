@@ -29,7 +29,7 @@ class FloatingLabel extends React.Component {
 
 		this.state = {
 			isActive: false,
-			text: "",
+			text: this.props.initialValue ?? "",
 			id: ID,
 			labelId: this.props.labelId ? this.props.labelId : `${ID}-label`,
 			inputId: this.props.inputId ? this.props.inputId : `${ID}-input`,
@@ -158,6 +158,7 @@ FloatingLabel.propTypes = {
 	loadingCogSpinning: PropTypes.bool,
 	loadingCogSize: PropTypes.number,
 	loadingCogStyle: PropTypes.object,
+	initialValue: PropTypes.string,
 };
 
 export default FloatingLabel;

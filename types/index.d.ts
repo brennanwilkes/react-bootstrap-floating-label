@@ -17,7 +17,8 @@ interface FloatingLabelIProps {
 	loadingCog?: boolean,
 	loadingCogSpinning?: boolean,
 	loadingCogSize?: number,
-	loadingCogStyle?: React.CSSProperties
+	loadingCogStyle?: React.CSSProperties,
+	initialValue?: string
 }
 interface FloatingLabelIState {
 	isActive: boolean,
