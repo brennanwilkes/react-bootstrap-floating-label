@@ -47,6 +47,7 @@ declare module 'react-bootstrap-floating-label' {
 	export default class FloatingLabel extends React.Component<FloatingLabelIProps, FloatingLabelIState>{
 		public constructor(props: FloatingLabelIProps);
 		public handleTextChange(event: React.FormEvent<HTMLInputElement>, force?: boolean): void;
+		public componentDidUpdate(prevProps: FloatingLabelIProps): void;
 	}
 	export class LoadingCog extends React.Component<LoadingCogIProps, LoadingCogIState>{
 		public constructor(props: LoadingCogIProps);
