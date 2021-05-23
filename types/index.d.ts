@@ -5,6 +5,7 @@ interface FloatingLabelIProps {
 	labelId?: string,
 	inputId?: string,
 	onChange?: (event: React.FormEvent<HTMLInputElement>) => void,
+	onBlur?: (event: React.FormEvent<HTMLInputElement>) => void,
 	onChangeDelay?: number,
 	className?: string,
 	labelClassName?: string,

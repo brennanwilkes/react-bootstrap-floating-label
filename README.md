@@ -45,6 +45,7 @@ import FloatingLabel from "react-bootstrap-floating-label";
 | inputId        | `string`   | ID of the internal input element                                                      |
 | onChange       | `function` | Callback function to run on change. Accepts parameter `event`                         |
 | onChangeDelay  | `number`   | Number of milliseconds to delay onChange callback by. Will reset on new change events |
+| onBlur         | `function` | Callback function to run on blur. Accepts parameter `event`                           |
 | className      | `string`   | Class(es) to apply to the wrapper div                                                 |
 | labelClassName | `string`   | Class(es) to apply to the internal label element                                      |
 | inputClassName | `string`   | Class(es) to apply to the internal input element                                      |

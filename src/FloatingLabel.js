@@ -109,6 +109,11 @@ class FloatingLabel extends React.Component {
 						type={propDefault.type}
 						value={this.state.text}
 						onChange={this.handleTextChange}
+						onBlur={(event) => {
+							if (this.props.onBlur) {
+								this.props.onBlur(event);
+							}
+						}}
 						onKeyDown={(event) => {
 							if (event.key === "Enter") {
 								this.handleTextChange(event, true);
@@ -155,6 +160,7 @@ FloatingLabel.propTypes = {
 	inputClassName: PropTypes.string,
 	type: PropTypes.string,
 	onChange: PropTypes.func,
+	onBlur: PropTypes.func,
 	onChangeDelay: PropTypes.number,
 	label: PropTypes.string,
 	style: PropTypes.object,
